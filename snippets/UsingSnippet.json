@@ -1,0 +1,10 @@
+{
+    "UsingSnippet": {
+    "prefix": ["Conversion Using"],
+    "body": [
+        "USING Siemens.Ax.ExampleLibrary;",
+        ""
+    ],
+    "description": "Create USING Simatic.Ax.Conversion;"
+    }
+}

@@ -1,10 +1,10 @@
 # General information
-name: "@simatic-ax/apax-package-name-d7b4b031"
-version: 0.0.1
+name: "@simatic-ax/ae-counter-tiax"
+version: 1.0.0
 author: Siemens AG
-type: app
+type: lib
 # Description for your application example or app
-description: <Description for your application example or app>
+description: Example library for demonstration purposes
 #URL to the repository
 repository:
   type: git
@@ -22,25 +22,36 @@ installStrategy: strict
 apaxVersion: 3.2.1
 # Dependencies
 devDependencies:
-  "@ax/sdk": 2411.1.0
-  "@simatic-ax/snippetscollection": 1.0.0
-dependencies:
-  "@ax/system": 8.0.7 # this is an example lib-dependency for your code, pls. adjust
+  "@ax/sdk": 2411.0.0
+  "@ax/ax2tia": 10.0.8
 
 # Project variables
 variables:
   APAX_BUILD_ARGS:
     - --debug # Enable debug information for value debugging 
   BIN_FOLDER: "./bin/1500" # choose your target RT, here : any S7-1500 PLC
-  # IP address must match with the IP address of your target device
-  # The IP address in the .vscode/launch.json must be equal  
-  IP_ADDRESS: "192.168.0.1"
+  # an arbitrary directory that can be chosen freely
+  PATH_NAME: "./bin/handover-folder"
+  # you can change the predefined output path where the TIA Portal library will be generated
+  TIA_GLOBAL_LIB_PATH: "./bin/TIAPortalLibrary"
+  # set the path to your local TIA Portal installation
+  TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V18"
 
 # Apax scripts
 scripts:
-  # call 'apax load' to download the builded program to the target. An 'apax build' might be required upfront
-  load: apax sld load --input $BIN_FOLDER --target $IP_ADDRESS --restart --accept-security-disclaimer --log debug
-  # call 'apax dlplc' to build and download the application to the target
-  dlplc:
+  # transfer a AX Library to handover library documents for a TIA Libray
+  export-tia-handover-documents: ax2tia -i ./bin/1500/*.lib -o "$PATH_NAME"
+  # convert library handover documents into a global library for the TIA Portal.
+  import-handover-documents-to-tia: '"$TIA_INSTALL_PATH\\bin\\Siemens.Simatic.Lang.Library.Importer.exe" -i "$PATH_NAME" -o "$TIA_GLOBAL_LIB_PATH" -u'
+  create-tialib:
     - apax build
-    - apax load
+    - apax export-tia-handover-documents
+    - apax import-handover-documents-to-tia
+
+# Files, which will be shipped with the library
+files:
+  - ./bin/1500/*.lib
+  - ./bin/llvm/*.lib
+  - ./bin/TIAPortalLibrary
+  - README.md
+  - LICENSE.md

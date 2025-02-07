@@ -1,0 +1,11 @@
+{
+    "NamespaceSupport": {
+    "prefix": ["namespace, Example"],
+    "body": [
+        "NAMESPACE Siemens.Ax.ExampleLibrary",
+        "\t$0",
+        "END_NAMESPACE"
+    ],
+    "description": "Creates an namespace template"
+    }    
+}
