@@ -34,10 +34,9 @@ variables:
   PATH_NAME: "./bin/handover-folder"
   # You can change the predefined output path where the TIA Portal library will be generated
   TIA_GLOBAL_LIB_PATH: "./bin/TIAPortalLibrary"
-  # !!! IMPORTANT !!! Set the path to your local TIA Portal installation, this can be any starting at V18
-  TIA_INSTALL_PATH: "E:\\TiaDeployments\\9278_20.00.00.00_93.01.0001\\TIA All\\"
-  #"E:\\TiaDeployments\\9278_20.00.00.00_93.01.0001\\TIA All\\"
-  #"C:\\Program Files\\Siemens\\Automation\\Portal V20"
+  # !!! IMPORTANT !!! Set the path to your latest local TIA Portal installation, this can be any starting at V18
+  TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V20"
+
 # Apax scripts
 scripts:
   # Transfer a AX Library to handover library documents for a TIA Libray
