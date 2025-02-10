@@ -2,7 +2,7 @@
     "NamespaceSupport": {
     "prefix": ["namespace, Example"],
     "body": [
-        "NAMESPACE Siemens.Ax.ExampleLibrary",
+        "NAMESPACE Siemens.Ax.TiaxExampleLibrary",
         "\t$0",
         "END_NAMESPACE"
     ],

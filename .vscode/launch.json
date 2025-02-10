@@ -6,10 +6,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug live on PLC",
+            "name": "192.168.0.1 Debug-PLC",
             "type": "plc-debug",
             "request": "launch",
             "program": "${workspaceFolder}",
+            "symbolsPath": "${workspaceFolder}/bin/1500/simatic-ax-${workspaceFolderBasename}.lib",
             "ip": "192.168.0.1"
         }
     ]

@@ -4,11 +4,11 @@ version: 1.0.0
 author: Siemens AG
 type: lib
 # Description for your application example or app
-description: Example library for demonstration purposes
-#URL to the repository
+description: Example tiax-library for demonstration purposes.
+# URL to the repository
 repository:
   type: git
-  url: https://github.com/simatic-ax/apax-package-name-d7b4b031
+  url: https://github.com/simatic-ax/ae-counter-tiax
 # Targets to be compiled with 'apax build'
 targets:
   - "1500"
@@ -16,32 +16,33 @@ targets:
 
 # Registry information, to other npm-registries where Apax packages are located
 registries:
-  '@simatic-ax': 'https://npm.pkg.github.com/'
+  "@simatic-ax": "https://npm.pkg.github.com/"
 # Install settings
 installStrategy: strict
-apaxVersion: 3.2.1
+apaxVersion: 3.4.2
 # Dependencies
 devDependencies:
-  "@ax/sdk": 2411.0.0
+  "@ax/sdk": 2411.1.0
   "@ax/ax2tia": 10.0.8
 
 # Project variables
 variables:
   APAX_BUILD_ARGS:
-    - --debug # Enable debug information for value debugging 
+    - --debug # Enable debug information for value debugging
   BIN_FOLDER: "./bin/1500" # choose your target RT, here : any S7-1500 PLC
-  # an arbitrary directory that can be chosen freely
+  # An arbitrary directory that can be chosen freely
   PATH_NAME: "./bin/handover-folder"
-  # you can change the predefined output path where the TIA Portal library will be generated
+  # You can change the predefined output path where the TIA Portal library will be generated
   TIA_GLOBAL_LIB_PATH: "./bin/TIAPortalLibrary"
-  # set the path to your local TIA Portal installation
-  TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V18"
-
+  # !!! IMPORTANT !!! Set the path to your local TIA Portal installation, this can be any starting at V18
+  TIA_INSTALL_PATH: "E:\\TiaDeployments\\9278_20.00.00.00_93.01.0001\\TIA All\\"
+  #"E:\\TiaDeployments\\9278_20.00.00.00_93.01.0001\\TIA All\\"
+  #"C:\\Program Files\\Siemens\\Automation\\Portal V20"
 # Apax scripts
 scripts:
-  # transfer a AX Library to handover library documents for a TIA Libray
+  # Transfer a AX Library to handover library documents for a TIA Libray
   export-tia-handover-documents: ax2tia -i ./bin/1500/*.lib -o "$PATH_NAME"
-  # convert library handover documents into a global library for the TIA Portal.
+  # Convert library handover documents into a global library for the TIA Portal
   import-handover-documents-to-tia: '"$TIA_INSTALL_PATH\\bin\\Siemens.Simatic.Lang.Library.Importer.exe" -i "$PATH_NAME" -o "$TIA_GLOBAL_LIB_PATH" -u'
   create-tialib:
     - apax build
