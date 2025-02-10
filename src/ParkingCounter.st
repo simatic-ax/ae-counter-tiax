@@ -1,6 +1,7 @@
-NAMESPACE Siemens.Ax.ExampleLibrary
+NAMESPACE Siemens.Ax.TiaxExampleLibrary
 
     CLASS ParkingCounter
+
         VAR PUBLIC
             BSensorOutside : REF_TO BOOL;
             BSensorInside : REF_TO BOOL;
@@ -11,14 +12,17 @@ NAMESPACE Siemens.Ax.ExampleLibrary
             _bSensorOutsideOld : BOOL;
             _bSSensorInsideOld : BOOL;
         END_VAR
+
         /// Evaluate the signals of the entry barrier
         METHOD PUBLIC Execute
             THIS.Count(THIS.CheckDirection(sIn := BSensorInside^, sOut := BSensorOutside^));
         END_METHOD
+
         /// Returns the actual value of the ParkingCounter
         METHOD PUBLIC GetAmountOfParkedItems : DINT
             GetAmountOfParkedItems := c.GetValue();
         END_METHOD
+
         /// Count the counter upwards or downwards depending on the direction
         METHOD PROTECTED Count
             VAR_INPUT
@@ -37,6 +41,7 @@ NAMESPACE Siemens.Ax.ExampleLibrary
                     END_IF;
             END_CASE;
         END_METHOD
+
         /// Checks Direction depending on the input signals
         METHOD PROTECTED CheckDirection : Direction
             VAR_INPUT
@@ -59,6 +64,7 @@ NAMESPACE Siemens.Ax.ExampleLibrary
                 CheckDirection := Direction#Implausible;
             END_IF;
         END_METHOD
+
     END_CLASS
 
     TYPE

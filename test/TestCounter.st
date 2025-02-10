@@ -1,18 +1,23 @@
-USING Siemens.Ax.ExampleLibrary;
+USING Siemens.Ax.TiaxExampleLibrary;
 USING AxUnit;
 
 NAMESPACE Siemens.Ax
 
     {TestFixture}
     CLASS TestCounter
+        
         VAR
             c : Counter;
             initialC : Counter;
         END_VAR
+
         {TestSetup}
+        /// Special initializer-method 
+        /// Will be executed everytime BEFORE a test-method will be executed
         METHOD PUBLIC Setup
             c := initialC;
         END_METHOD
+
         {Test}
         METHOD PUBLIC Test_CountUp_1_Time_And_Get_1
             c.CountUp();
@@ -48,6 +53,7 @@ NAMESPACE Siemens.Ax
             c.SetValue();
             Assert.Equal(actual := c.GetValue(), expected := 0);
         END_METHOD
+
     END_CLASS
 
 END_NAMESPACE

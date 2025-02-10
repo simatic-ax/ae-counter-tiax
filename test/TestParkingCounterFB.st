@@ -1,10 +1,11 @@
-USING Siemens.Ax.ExampleLibrary;
+USING Siemens.Ax.TiaxExampleLibrary;
 USING AxUnit;
 
 NAMESPACE Siemens.Ax
 
     {TestFixture}
     CLASS TestParkingCounterFB
+        
         VAR
             c : ParkingCounterWrapper;
             initialC : ParkingCounterWrapper;
@@ -12,7 +13,10 @@ NAMESPACE Siemens.Ax
             bOutside : BOOL;
             binitial : BOOL;
         END_VAR
+
         {TestSetup}
+        /// Special initializer-method 
+        /// Will be executed everytime BEFORE a test-method will be executed
         METHOD PUBLIC Setup
             c := initialC;
             bInside := binitial;
@@ -21,7 +25,6 @@ NAMESPACE Siemens.Ax
 
         /// Sinal Sequence for 1 object entering
         METHOD Enter_1_object_signal_sequence
-            
             bInside := FALSE;
             bOutside := FALSE;
             c(BSensorOutside := bOutside, BSensorInside := bInside, Limit := 2);
@@ -86,6 +89,7 @@ NAMESPACE Siemens.Ax
             cv := c.countValue;
             Assert.Equal(actual := cv, expected := 0);
         END_METHOD
+
     END_CLASS
 
 END_NAMESPACE
