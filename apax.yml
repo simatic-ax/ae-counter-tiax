@@ -23,7 +23,7 @@ apaxVersion: 3.4.2
 # Dependencies
 devDependencies:
   "@ax/sdk": 2411.1.0
-  "@ax/ax2tia": 10.0.8
+  "@ax/ax2tia": 11.0.18
 
 # Project variables
 variables:
