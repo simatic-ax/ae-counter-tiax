@@ -19,11 +19,16 @@ registries:
   "@simatic-ax": "https://npm.pkg.github.com/"
 # Install settings
 installStrategy: strict
-apaxVersion: 3.4.2
+apaxVersion: 3.5.0
+
+# Catalogs
+catalogs:
+  "@ax/simatic-ax": 2504.0.0
+
 # Dependencies
 devDependencies:
-  "@ax/sdk": 2411.1.0
-  "@ax/ax2tia": 10.0.8
+  "@ax/sdk": 2504.0.0
+  "@ax/ax2tia": 11.0.18
 
 # Project variables
 variables:
@@ -33,7 +38,7 @@ variables:
   # An arbitrary directory that can be chosen freely
   PATH_NAME: "./bin/handover-folder"
   # You can change the predefined output path where the TIA Portal library will be generated
-  TIA_GLOBAL_LIB_PATH: "./bin/TIAPortalLibrary"
+  TIA_GLOBAL_LIB_PATH: "./TIAPortalLibrary"
   # !!! IMPORTANT !!! Set the path to your latest local TIA Portal installation, this can be any starting at V18
   TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V20"
 
