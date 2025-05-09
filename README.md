@@ -1,15 +1,37 @@
-# !!! THIS README IS UNDER CONSTRUCTION !!!
-# !!! THIS README IS UNDER CONSTRUCTION !!!
-# !!! THIS README IS UNDER CONSTRUCTION !!!
-# !!! THIS README IS UNDER CONSTRUCTION !!!
+# Example library for demonstrating the "TIAX - library" use case
 
-# Example library for TIAX use case
+## Explaination "TIAX - library"
 
-## Description
+In the "TIAX - library" use case you create a library (type: "lib") within SIMATIC AX and export the contents towards a TIA Portal Global-library for later reuse in TIA Portal. With that being said the TIA Portal Global-library will hold the FC's, FB's, Classes etc. in it's "typed" nature, so you will be able to make use of all the library features within TIA Portal including central updates accross your project.  
+
+## Description of this example Library
 
 This sample library contains suitable functionalities for determining the parking space occupancy of a car park. 
 
 ![CarPark](img/CarPark.png)
+
+## Create your project from this template
+
+1. If not done yet: 
+   
+   Login to **SIMATIC AX**
+
+    ```sh
+    apax login
+    ```
+
+    Login to the **GitHub**
+
+    ```sh
+    apax login --registry "https://npm.pkg.github.com/" --password YOUR-GH-ACCESS-TOKEN
+    ```
+
+2. Create the TIA Portal Library
+
+    ```sh
+    apax create-tialib
+    ```
+
 
 ## Software blocks
 
@@ -38,20 +60,6 @@ _Maybe a link what a wrapper FB is ?_
 _How does a wrapper work? Also link to explanation_
 
 ## Steps to create the TIA Portal Global Library
-
-1. If not done yet: Login to AX with apax login
-
-1. Install dependencies
-
-    ```sh
-    apax install
-    ```
-
-1. Create the TIA Portal Library
-
-    ```sh
-    apax create-tialib
-    ```
 
     The Global Library will be stored in ./bin/TIAPortalLibrary
 

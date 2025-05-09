@@ -6,12 +6,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "192.168.0.1 Debug-PLC",
+            "name": "192.168.0.1 Debug-PLC", // can be any name, adjust if needed
             "type": "plc-debug",
             "request": "launch",
             "program": "${workspaceFolder}",
             "symbolsPath": "${workspaceFolder}/bin/1500/simatic-ax-${workspaceFolderBasename}.lib",
-            "ip": "192.168.0.1"
+            "ip": "192.168.0.1"  // please adjust to fit your IP settings
         }
     ]
 }
