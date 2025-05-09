@@ -3,9 +3,16 @@
 # here you can define the content
 
 files:
-  - template
-  - '!**/.git'
-  - '!**/.gitattributes'
-  - '!**/.markdownlint.yml'
-  - '!template/CODEOWNERS'
-  - '!template/apax-files-section.yml'
+  - .vscode
+  - docs
+  - img
+  - snippets
+  - src
+  - test
+  - .gitignore
+  - watchlist
+  - apax-lock.json
+  - apax.yml
+  - LICENSE.md
+  - README.md  
+  - TIAPortalLibrary
