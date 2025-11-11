@@ -5,7 +5,6 @@
 files:
   - .vscode
   - docs
-  - img
   - snippets
   - src
   - test
