@@ -23,12 +23,12 @@ apaxVersion: 3.5.0
 
 # Catalogs
 catalogs:
-  "@ax/simatic-ax": 2504.0.0
+  "@ax/simatic-ax": 2510.0.0
 
 # Dependencies
 devDependencies:
-  "@ax/sdk": 2504.0.0
-  "@ax/ax2tia": 11.0.18
+  "@ax/sdk": 2510.0.0
+  "@ax/ax2tia": 12.0.29
 
 # Project variables
 variables:
