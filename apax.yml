@@ -50,12 +50,4 @@ scripts:
     - apax build
     - apax export-tia-handover-documents
     - apax import-handover-documents-to-tia
-
-# Files, which will be shipped with the library
-files:
-  - ./bin/1500/*.lib
-  - ./bin/llvm/*.lib
-  - ./TIAPortalLibrary
-  - docs
-  - README.md
-  - LICENSE.md
+    

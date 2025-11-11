@@ -10,9 +10,7 @@ files:
   - test
   - .gitignore
   - .gitattributes
-  - watchlist
   - apax-lock.json
   - apax.yml
   - LICENSE.md
-  - README.md  
-  - TIAPortalLibrary
+  - README.md
