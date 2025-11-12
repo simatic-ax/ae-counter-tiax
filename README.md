@@ -1,91 +1,103 @@
-# Example library for demonstrating the "TIAX - library" use case
+# Example Library for Demonstrating the "TIAX - Library" Use Case
 
-## Explaination "TIAX - library"
+## Description
 
-In the "TIAX - library" use case you create a library (type: "lib") within SIMATIC AX and export the contents towards a TIA Portal Global-library for later reuse in TIA Portal. With that being said the TIA Portal Global-library will hold the FC's, FB's, Classes etc. in it's "typed" nature, so you will be able to make use of all the library features within TIA Portal including central updates accross your project.  
+This simple sample library provides functionalities to determine the parking space occupancy of a car park. The project is specifically designed for a use case in TIA Portal, leveraging the "TIAX" workflow.
 
-## Description of this example Library
+![CarPark](docs/img/CarPark.png)
 
-This sample library contains suitable functionalities for determining the parking space occupancy of a car park. 
+## Understanding the "TIAX - Library" Workflow
 
-![CarPark](img/CarPark.png)
+The "TIAX - library" use case involves creating a library (of type "lib") within SIMATIC AX and then exporting its contents to a TIA Portal Global Library. This allows for later reuse within TIA Portal. The TIA Portal Global Library will retain the "typed" nature of your FCs, FBs, Classes, and so on, enabling you to utilize all TIA Portal's library features, including central updates across your projects.
 
-## Create your project from this template
+## Creating Your Project from This Template
 
-1. If not done yet: 
-   
-   Login to **SIMATIC AX**
+Please use a CLI terminal for the following steps:
+
+1.  Log in to SIMATIC AX:
 
     ```sh
     apax login
     ```
 
-    Login to the **GitHub**
+2.  Log in to GitHub:
 
     ```sh
     apax login --registry "https://npm.pkg.github.com/" --password YOUR-GH-ACCESS-TOKEN
     ```
+    `YOUR-GH-ACCESS-TOKEN` can be created in your GitHub account settings.
 
-2. Create the TIA Portal Library
+3.  Navigate to your desired project path
+
+4.  Create a new project based on this application-example template.
+
+    ```sh
+    apax create @simatic-ax/ae-counter-tiax --registry https://npm.pkg.github.com ae-counter-tiax
+    ```
+
+## Software Blocks
+
+### Counter
+
+A generic `Counter` class designed for counting both upwards and downwards.
+
+### ParkingCounter
+
+The `ParkingCounter` class calculates the filling level (occupancy) of the car park based on a sequence of sensor signals.
+
+This class utilizes two input sensors:
+*   `BSensorInside`
+*   `BSensorOutside`
+
+The counter value will be incremented or decremented depending on the order in which these signals are activated.
+
+Example for entering the car park:
+If `SensorOutside` is activated first, followed by `SensorInside`, the counter will be increased by one.
+
+### ParkingCounterFB
+
+A TIA Portal compatible `ParkingCounterFB` that acts as a wrapper function block. It internally uses the `ParkingCounter` class.
+
+## Steps to Create the TIA Portal Global Library
+
+1.  Open the project in AX-Code.
+
+2.  Install project dependencies.
+    
+    Use the AX Code CLI terminal.
+
+    ```sh
+    apax install
+    ```
+
+3.  Adjust the TIA Portal install path
+
+    Modify the `TIA_INSTALL_PATH` variable within your `apax.yml` file to match your TIA Portal installation and version.
+
+    ```yaml
+    TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V20"
+    ```
+
+4.  Create the TIA Portal Library:
 
     ```sh
     apax create-tialib
     ```
 
+    The Global Library will be saved in the `./TIAPortalLibrary` directory.
 
-## Software blocks
+5.  Create or open an existing TIA Portal project.
 
-### Counter
+6.  Open the Global Library in TIA Portal.
 
-Generic `Counter` class for counting upwards and downwards.
+7.  Call the `ParkingCounterWrapper` block in your application.
 
-### ParkingCounter
+    ![TIA](docs/img/TiapUsage.png)
 
-Class `ParkingCounter` counts the filling level of the car park depending on the above described sensor signal sequence.
+## Contribution
 
-This class has two input sensors:
-- BSensorInside
-- BSensorOutside
+Thank you for your interest in contributing! We welcome your feedback. Please feel free to report bugs, suggest improvements, clarify documentation, and highlight any other issues regarding this repository in the "Issues" section. Even better, we encourage you to propose changes to this repository using "Merge Requests." Our designated CODEOWNERS will review and address them.
 
-Depending in which order the signals are occupied, the counter-value will be incremented or decremented.
+Happy coding!
 
-Example for entering the car park:
-First will the SensorOutside occupied and then SensorInside. In this case, the counter will be increased by one. 
-
-### ParkingCounterFB
-
-TIA Portal compatible `ParkingCounterFB` which acts as wrapper `function block`. It uses internally the class `ParkingCounter`
-
-_Maybe a link what a wrapper FB is ?_ 
-_How does a wrapper work? Also link to explanation_
-
-## Steps to create the TIA Portal Global Library
-
-    The Global Library will be stored in ./bin/TIAPortalLibrary
-
-1. Create or open an existing TIA Portal project
-
-1. Open the Global Library in TIA Portal
-
-1. Call the Block `ParkingCounterWrapper` in your application
-
-    ![TIA](img/TiaUsage.png)
-
-
-## Used features in this application example
-
-### ST features
-- Namespaces
-- Enumeration
-- Class & Methods 
-- Call of private methods (THIS-Operator)
-- Definition and implementation of interfaces (INTERFACE/IMPLEMENTS)
-- Access modifier (PRIVATE/PUBLIC)
-
-### UnitTesting
-- Test fixture
-- Test method
-- Assertions
-
-### AX Code Features
-- Snippets
+🐱‍💻 BEEP, BOOP, BEEP, BEEP, BOOP 🐱‍🏍

@@ -5,15 +5,12 @@
 files:
   - .vscode
   - docs
-  - img
   - snippets
   - src
   - test
   - .gitignore
   - .gitattributes
-  - watchlist
   - apax-lock.json
   - apax.yml
   - LICENSE.md
-  - README.md  
-  - TIAPortalLibrary
+  - README.md
