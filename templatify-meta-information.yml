@@ -12,5 +12,6 @@ files:
   - .gitattributes
   - apax-lock.json
   - apax.yml
+  - make.yml
   - LICENSE.md
   - README.md
